@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+    color: brown;
+    width: fit-content;
+    background-color: bisque;
+    margin-top: 20px ;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+
+.menuholder {
+    color: brown;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 12px;
+    justify-items: flex-start;
+}
+
+.menuholder h2 {
+    margin: 5px;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.defaultTabStyle {
+ color: black
+}
+
+.selectedStyle {
+ color: #a52a4a;
+}

@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Topmenu from "./components/Topmenu";
+import News from "./components/StoriesList";
+import StoriesList from "./components/StoriesList";
 
 function App() {
+  const [storyIds, setStoryIds] = useState([]);
+
+  // GETs story Ids or list of stories but just Ids
+  const getStories = (prefix: string) => {
+    fetch(
+      `https://hacker-news.firebaseio.com/v0/${prefix}stories.json?print=pretty`
+    )
+      .then((ids) => ids.json())
+      .then((data) => {
+        console.log("data", data);
+        return setStoryIds(data);
+      });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Topmenu getStories={getStories} />
+      <StoriesList storyIds={storyIds} />
     </div>
   );
 }
