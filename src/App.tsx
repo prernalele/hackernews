@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Topmenu from "./components/Topmenu";
-import News from "./components/StoriesList";
 import StoriesList from "./components/StoriesList";
 
 function App() {
