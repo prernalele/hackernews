@@ -75,7 +75,7 @@ const StoriesList = ({ storyIds }: NewInterface) => {
   return (
     <div>
       {stories.map((story) => {
-        const { id, title, by,time,kids, descendants, url } = story;
+        const { id, title, by, time, kids, url } = story;
         console.log("kids", kids)
         return (
           <div key={id} className="story">
@@ -87,6 +87,7 @@ const StoriesList = ({ storyIds }: NewInterface) => {
               <h4>{title}</h4>
             )}
             <div>By {by}</div>
+            <div>{time}</div>
           </div>
         );
       })}
