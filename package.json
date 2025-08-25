@@ -1,5 +1,6 @@
 {
   "name": "hackernews",
+  "homepage": "https://prernalele.github.io/hackernews",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
