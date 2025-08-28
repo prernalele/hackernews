@@ -7,26 +7,31 @@ interface TopmenuProps {
 
 const Topmenu: React.FC<TopmenuProps> = ({ getStories }) => {
   const [topSelected, setTopSelected] = useState(true);
+
   useEffect(() => {
     getStories("top");
-  }, [getStories]);
+  }, []);
 
-  const newStoriesClickHandler = () => {
-    getStories("new");
-    setTopSelected(false);
+  const storiesClickHandler = () => {
+    const param = topSelected ? "top" : "new";
+    getStories(param);
+    setTopSelected(!topSelected);
   };
   return (
     <div className="container">
       <h1 className="title">Welcome to HackerNews</h1>
       <div className="menuholder">
-        <h2 className={topSelected ? "selectedStyle" : "defaultTabStyle"}>
+        <h2
+          className={topSelected ? "selectedStyle" : "defaultTabStyle"}
+          onClick={storiesClickHandler}
+        >
           Top Stories
         </h2>
         <h2
           className={topSelected ? "defaultTabStyle" : "selectedStyle"}
-          onClick={newStoriesClickHandler}
+          onClick={storiesClickHandler}
         >
-          News
+          New Stories
         </h2>
       </div>
     </div>

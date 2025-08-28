@@ -6,5 +6,24 @@
 }
 
 .story a {
-    color : brown
+    color : brown;
 }
+
+.highlightedSubcategory {
+    color: black;
+    margin: 2px;
+    padding: 2px;
+    font-weight:600;
+    opacity: 0.8;
+}
+
+.storyDetailsContainer {
+    color: grey;
+    display: flex;
+    flex-direction: row;
+}
+
+.underlinedText {
+    text-decoration: underline;
+}
+

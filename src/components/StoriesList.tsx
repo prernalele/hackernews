@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { isNumericLiteral } from "typescript";
 import "./StoriesList.css";
 
 interface NewInterface {
@@ -75,8 +76,15 @@ const StoriesList = ({ storyIds }: NewInterface) => {
   return (
     <div>
       {stories.map((story) => {
-        const { id, title, by, time, kids, url } = story;
-        console.log("kids", kids)
+        const { id, title, by, time, kids, descendants, url } = story;
+
+        console.log("descendants", descendants);
+
+        // convert unix time to miliseconds
+        const event = new Date(time * 1000);
+
+        const humanReadableDate = event.toLocaleString("en-US");
+        console.log("story", story);
         return (
           <div key={id} className="story">
             {url ? (
@@ -86,8 +94,27 @@ const StoriesList = ({ storyIds }: NewInterface) => {
             ) : (
               <h4>{title}</h4>
             )}
-            <div>By {by}</div>
-            <div>{time}</div>
+            <div className="storyDetailsContainer">
+              <div className="authorBox">
+                By{" "}
+                <span className="highlightedSubcategory underlinedText">
+                  {by}
+                </span>
+              </div>
+              <div className="timeBox">
+                on
+                <span className="highlightedSubcategory">
+                  {humanReadableDate}
+                </span>
+              </div>
+              <div className="commentBox">
+                with
+                <span className="highlightedSubcategory underlinedText">
+                  {descendants}
+                </span>
+                comments
+              </div>
+            </div>
           </div>
         );
       })}
