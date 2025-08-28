@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { isNumericLiteral } from "typescript";
+
 import "./StoriesList.css";
 
 interface NewInterface {
@@ -85,6 +85,7 @@ const StoriesList = ({ storyIds }: NewInterface) => {
 
         const humanReadableDate = event.toLocaleString("en-US");
         console.log("story", story);
+        console.log("kids", kids);
         return (
           <div key={id} className="story">
             {url ? (
