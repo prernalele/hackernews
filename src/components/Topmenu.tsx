@@ -10,7 +10,7 @@ const Topmenu: React.FC<TopmenuProps> = ({ getStories }) => {
 
   useEffect(() => {
     getStories("top");
-  }, []);
+  }, [getStories]);
 
   const storiesClickHandler = () => {
     const param = topSelected ? "top" : "new";
